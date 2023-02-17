@@ -4,7 +4,15 @@ import {
 } from 'vue-router'
 
 const routes = [
-
+  {
+    path: '/',
+    component: () => import('@/views/Layout'),
+    children: [
+      {
+        path: '/',
+        component: () => import('@/views/home')
+      }
+    ]}
 ]
 
 const router = createRouter({
