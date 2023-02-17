@@ -1,18 +1,27 @@
 <template>
-  <nav>顶部通栏</nav>
-  <header>头部</header>
+  <AppTopNav></AppTopNav>
+  <AppHeader></AppHeader>
   <main>
     <!-- 二级路由 -->
     <router-view></router-view>
   </main>
-  <footer>底部</footer>
+  <AppFooter></AppFooter>
 </template>
 
 <script>
+import AppTopNav from '../components/app-topNav.vue'
+import AppHeader from '../components/app-header.vue'
+import AppFooter from '../components/app-footer.vue'
 export default {
   name: "xtx-Layout",
+  components: {
+    AppTopNav,
+    AppHeader,
+    AppFooter
+  }
 };
 </script>
 
-<style>
+<style scoped lang="less">
+
 </style>
