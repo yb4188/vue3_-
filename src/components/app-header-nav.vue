@@ -2,13 +2,13 @@
   <ul class="app-header-nav">
     <li class="home"><RouterLink to="/">首页</RouterLink></li>
     <li v-for="item in list" :key="item.id">
-      <RouterLink to="/">{{item.name}}</RouterLink>
+      <RouterLink :to="'/category/${item.id}'">{{ item.name }}</RouterLink>
       <div class="layer">
         <ul>
           <li v-for="sub in item.children" :key="sub.id">
-            <RouterLink to="/">
-              <img :src="sub.picture" alt="">
-              <p>{{sub.name}}</p>
+            <RouterLink :to="`/category/sub/${sub.id}`">
+              <img :src="sub.picture" alt="" />
+              <p>{{ sub.name }}</p>
             </RouterLink>
           </li>
         </ul>
@@ -23,18 +23,29 @@ import { useStore } from "vuex";
 export default {
   name: "AppHeaderNav",
   setup() {
+    // 获取仓库并使用计算属性 简化数据 进行数据渲染
     const store = useStore();
     const list = computed(() => {
       return store.state.category.list;
     });
+
+    //实现路由跳转时 导航菜单隐藏
+    // const show = (item) => {
+    //   store.commit("category/show", item.id);
+    // };
+    // const hide = (item) => {
+    //   store.commit("category/hide", item.id);
+    // };
     return {
       list,
+      // show,
+      // hide
     };
   },
 };
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .app-header-nav {
   width: 820px;
   display: flex;
