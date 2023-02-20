@@ -101,7 +101,7 @@ export default {
       return list;
     });
     //获取当前分类逻辑
-    const categoryId = ref(null);
+    const categoryId = ref();
     const currCategory = computed(() => {
       return menuList.value.find((item) => {
         return item.id === categoryId.value;
