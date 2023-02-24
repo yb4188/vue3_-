@@ -29,3 +29,8 @@ export const findGoods = () => {
 export const findSpecial = () => {
   return request("home/special", "get");
 };
+
+//获取单个顶级分类信息
+export const findTopCategory = (id) => {
+  return request('/category', 'get', { id })
+}

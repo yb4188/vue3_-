@@ -43,7 +43,6 @@ export default {
     findGoods().then((data) => {
       list.value = data.result;
     });
-    console.log(list);
     return {
       list,
     };

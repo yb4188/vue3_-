@@ -2,7 +2,7 @@
   <ul class="app-header-nav">
     <li class="home"><RouterLink to="/">首页</RouterLink></li>
     <li v-for="item in list" :key="item.id">
-      <RouterLink :to="'/category/${item.id}'">{{ item.name }}</RouterLink>
+      <RouterLink :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
       <div class="layer">
         <ul>
           <li v-for="sub in item.children" :key="sub.id">
